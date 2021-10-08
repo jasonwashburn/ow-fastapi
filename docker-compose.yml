@@ -5,4 +5,4 @@ services:
     build: .
     command: uvicorn main:app --host 0.0.0.0
     ports:
-      - 8008:8000
+      - "8008:8000"

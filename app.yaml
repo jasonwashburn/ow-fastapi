@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ow-fastapi
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: ow-fastapi
+          image: ow-fastapi:latest
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ow-fastapi-entrypoint
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+    - port: 8000
+      targetPort: 8000
+      nodePort: 30001

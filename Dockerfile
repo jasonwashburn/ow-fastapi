@@ -30,3 +30,5 @@ RUN umask 0002 \
 WORKDIR /app
 
 COPY app/ /app
+
+CMD uvicorn main:app --host 0.0.0.0
