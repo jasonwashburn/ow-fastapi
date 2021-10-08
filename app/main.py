@@ -11,4 +11,5 @@ def get_root():
 
 @app.get("/ipython/")
 def get_ipython():
-    return sys.path
+    path = str(sys.path)
+    return path
